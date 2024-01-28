@@ -22,4 +22,9 @@ public class OrderServiceImpl implements OrderService{
 
     return new Order(memberId, itemName, itemPrice, discountPrice);
   }  // 단일 책임 원칙을 잘 지킴
+
+  // 테스트 용도
+  public MemberRepository getMemberRepository() {
+    return memberRepository;
+  }
 }

@@ -15,18 +15,28 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class AppConfig { //애플리케이션 전체를 설정하고 구성한다
 
+  //@Bean memberService -> new MemoryMemberRepository()
+  //@Bean orderService -> new MemoryMemberRepository()
+
+  //call AppConfig.memberService
+  //call AppConfig.memberRepository
+  //call AppConfig.orderService
+
   @Bean //스프링 컨테이너에 등록된다
   public MemberService memberService(){
+    System.out.println("call AppConfig.memberService"); //soutm
     return new MemberServiceImpl(memberRepository()); //ctrl + art + m
   }
 
   @Bean
   public MemberRepository memberRepository() {
+    System.out.println("call AppConfig.memberRepository");
     return new MemoryMemberRepository();
   }
 
   @Bean
   public OrderService orderService(){
+    System.out.println("call AppConfig.orderService");
     return new OrderServiceImpl(memberRepository(), discountPolicy());
   }
 
