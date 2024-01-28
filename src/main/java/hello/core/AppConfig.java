@@ -33,6 +33,13 @@ public class AppConfig { //애플리케이션 전체를 설정하고 구성한�
     System.out.println("call AppConfig.memberRepository");
     return new MemoryMemberRepository();
   }
+//  if (memoryMemberRepository가 이미 스프링 컨테이너에 등록되어 있으면?) {
+//    return 스프링 컨테이너에서 찾아서 반환;
+//  } else { //스프링 컨테이너에 없으면
+//    기존 로직을 호출해서 MemoryMemberRepository를 생성하고 스프링 컨테이너에 등록
+//    return 반환
+//  }
+
 
   @Bean
   public OrderService orderService(){
