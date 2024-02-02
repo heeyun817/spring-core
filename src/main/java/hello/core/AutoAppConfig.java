@@ -13,8 +13,8 @@ import org.springframework.context.annotation.FilterType;
 )
 public class AutoAppConfig {
 
-  @Bean(name = "memoryMemberRepository") //수동 빈 등록 vs 자동 빈 등록 -> 수동 빈 등록이 우선권(수동 빈이 자동 빈을 오버라이딩)
-  MemberRepository memberRepository(){
-    return new MemoryMemberRepository();
-  }
+//  @Bean(name = "memoryMemberRepository") //수동 빈 등록 vs 자동 빈 등록 -> 수동 빈 등록이 우선권(수동 빈이 자동 빈을 오버라이딩)
+//  MemberRepository memberRepository(){
+//    return new MemoryMemberRepository();
+//  }
 }
