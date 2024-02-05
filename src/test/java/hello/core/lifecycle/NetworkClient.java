@@ -42,14 +42,3 @@ public class NetworkClient {
     disconnect();
   }
 }
-
-//  컴포넌트 스캔 자동 등록 ```java
-@Scope("prototype")
-@Component
-public class HelloBean {} ```
-//   수동 등록 ```java
-@Scope("prototype")
-@Bean
-PrototypeBean HelloBean() {
-    return new HelloBean();
-    }
