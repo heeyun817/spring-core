@@ -4,7 +4,9 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 import jakarta.annotation.PostConstruct;
 import jakarta.annotation.PreDestroy;
+import jakarta.inject.Provider;
 import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.ObjectProvider;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
@@ -56,14 +58,12 @@ public class SingletonWithPrototypeTest1 {
 
   @Scope("singleton")
   static class ClientBean2{
-    private final PrototypeBean prototypeBean; //생성시점에 주입
 
     @Autowired
-    ClientBean2(PrototypeBean prototypeBean) {
-      this.prototypeBean = prototypeBean;
-    }
+    private Provider<PrototypeBean> prototypeBeanProvider;
 
     public int logic(){
+      PrototypeBean prototypeBean = prototypeBeanProvider.get(); //getObject() 호출하면 그때서야 컨테이너에서 프로토타입 빈을 찾아서 반환해줌
       prototypeBean.addCount();
       int count = prototypeBean.getCount(); //ctrl + art + n (합침)
       return count;
